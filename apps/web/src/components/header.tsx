@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Breadcrumbs, Sheet, Link, Typography } from '@mui/joy';
 import PublicIcon from '@mui/icons-material/Public';
 
-import { RemoteContext } from '../App';
+import { RemoteContext } from '../app/app';
 
 const Header = () => {
   const context = useContext(RemoteContext);

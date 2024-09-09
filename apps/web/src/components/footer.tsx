@@ -5,7 +5,7 @@ import TabList from '@mui/joy/TabList';
 import Tab, { tabClasses } from '@mui/joy/Tab';
 import Link from '@mui/joy/Link';
 
-import { RemoteContext } from '../App';
+import { RemoteContext } from '../app/app';
 
 const Footer = () => {
   const context = useContext(RemoteContext);
