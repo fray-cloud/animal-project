@@ -12,7 +12,10 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.circleci/config.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.circleci/config.yml",
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
   "nxCloudAccessToken": "YzcxYWY3ZjUtYjQzNy00YTUyLTk2ZTYtN2E5M2ViY2Y0ZTVhfHJlYWQtd3JpdGU=",
   "plugins": [
