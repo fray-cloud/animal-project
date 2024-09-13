@@ -3,6 +3,9 @@ import Sidebar from 'front/new-component/sidebar';
 import Header from 'front/new-component/header';
 
 import 'front/app/app.module.scss';
+import SiteRouter from 'front/route';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import SearchRouter from 'front/new-site/search';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -25,7 +28,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 const App = () => {
   return (
     <Layout>
-      <div>Content goes here...</div>
+      <SiteRouter />
     </Layout>
   );
 };

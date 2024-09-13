@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MdOutlinePets, MdOutlineContentPasteSearch } from 'react-icons/md';
 import { FcLikePlaceholder } from 'react-icons/fc';
+import { v4 as uuidv4 } from 'uuid';
 
 const Sidebar: React.FC<{ isOpen: boolean; toggleSidebar: () => void }> = ({
   isOpen,
@@ -37,7 +38,7 @@ const Sidebar: React.FC<{ isOpen: boolean; toggleSidebar: () => void }> = ({
       <ul className={`menu p-4 overflow-y-auto`}>
         {barItem.map((item) => {
           return (
-            <li>
+            <li key={uuidv4()}>
               <a
                 className="flex items-center p-2 rounded hover:bg-base-700"
                 href={item.path}
