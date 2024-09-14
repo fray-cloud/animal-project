@@ -6,6 +6,9 @@ import 'front/app/app.module.scss';
 import SiteRouter from 'front/route';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import SearchRouter from 'front/new-site/search';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -26,10 +29,14 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 const App = () => {
+  const queryClient = new QueryClient();
   return (
-    <Layout>
-      <SiteRouter />
-    </Layout>
+    <QueryClientProvider client={queryClient}>
+      <Layout>
+        <SiteRouter />
+      </Layout>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 };
 
