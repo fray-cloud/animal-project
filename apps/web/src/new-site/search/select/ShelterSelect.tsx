@@ -3,21 +3,17 @@ import React from 'react';
 import { initShelter, initSido } from './initData';
 import { UseFormRegister, UseFormWatch } from 'react-hook-form';
 import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
+import { Select, SelectProps, SelectWatchProps } from './Select';
 
-type Props = {
-  register: UseFormRegister<AnimalInfoRequestType>;
-  watch: UseFormWatch<AnimalInfoRequestType>;
-};
-
-export const ShelterSelect = (props: Props) => {
-  const { register, watch } = props;
+export const ShelterSelect = (props: SelectProps & SelectWatchProps) => {
+  const { register, watch, name } = props;
   const shelters = useShelter({
     init: initShelter,
     upr_cd: watch('upr_cd'),
     org_cd: watch('org_cd'),
   });
   return (
-    <select {...register('care_reg_no')}>
+    <Select labelName="보호소" register={register} name={name}>
       {shelters.data?.map((shelter, index) => {
         return (
           <option key={index} value={shelter.careRegNo}>
@@ -25,6 +21,6 @@ export const ShelterSelect = (props: Props) => {
           </option>
         );
       })}
-    </select>
+    </Select>
   );
 };

@@ -3,20 +3,16 @@ import React from 'react';
 import { initSigungu } from './initData';
 import { UseFormRegister, UseFormWatch } from 'react-hook-form';
 import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
+import { Select, SelectProps, SelectWatchProps } from './Select';
 
-type Props = {
-  register: UseFormRegister<AnimalInfoRequestType>;
-  watch: UseFormWatch<AnimalInfoRequestType>;
-};
-
-export const SigunguSelect = (props: Props) => {
-  const { register, watch } = props;
+export const SigunguSelect = (props: SelectProps & SelectWatchProps) => {
+  const { register, watch, name } = props;
   const sigungus = useSigungu({
     upr_cd: watch('upr_cd'),
     init: initSigungu,
   });
   return (
-    <select {...register('org_cd')}>
+    <Select labelName="시군구" register={register} name={name}>
       {sigungus.data?.map((sigungu, index) => {
         return (
           <option key={index} value={sigungu.orgCd}>
@@ -24,6 +20,6 @@ export const SigunguSelect = (props: Props) => {
           </option>
         );
       })}
-    </select>
+    </Select>
   );
 };
