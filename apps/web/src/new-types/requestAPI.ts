@@ -1,6 +1,6 @@
 interface RequestType {
-    serviceKey : string,
-    _type : string
+    serviceKey? : string,
+    _type? : string
 }
 
 interface PagenationType {
@@ -11,7 +11,7 @@ interface PagenationType {
 export type SidoRequestType = {} & RequestType & PagenationType
 
 export type SigunguRequestType = {
-    upr_cd : string
+    upr_cd? : string
 } & RequestType
 
 export type ShelterRequestType = {
@@ -20,7 +20,7 @@ export type ShelterRequestType = {
 } & RequestType
 
 export type KindRequestType = {
-    up_kind_cd : 417000 | 422400 | 429900, // 개, 고양이, 기타 순
+    up_kind_cd : string // '' | '417000' | '422400' | '429900', // 개, 고양이, 기타 순
 } & RequestType
 
 export type AnimalInfoRequestType = {

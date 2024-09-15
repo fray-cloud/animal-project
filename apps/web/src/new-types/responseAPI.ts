@@ -16,14 +16,12 @@ export interface APIResponse<T> {
     };
   }
   
-  interface Sido {
+  export interface Sido {
     orgCd: string;
     orgdownNm: string;
   }
-
-  export type SidoResponse = APIResponse<Sido>;
   
-  interface Sigungu {
+  export interface Sigungu {
     uprCd: string;
     orgCd: string;
     orgdownNm: string;
@@ -31,21 +29,21 @@ export interface APIResponse<T> {
 
   export type SigunguResponse = APIResponse<Sigungu>;
 
-  interface Shelter {
+  export interface Shelter {
     careRegNo: string;
     careNm: string;
   }
 
   export type ShelterResponse = APIResponse<Shelter>;
 
-  interface Kind {
+  export interface Kind {
     kindCd: string;
-    KNm: string;
+    knm: string;
   }
 
   export type KindResponse = APIResponse<Kind>;
 
-  interface AnimalInfo {
+  export interface AnimalInfo {
     desertionNo: string; // 유기번호
     filename: string; // Thumbnail Image URL
     happenDt: string; // 접수일 (YYYYMMDD)

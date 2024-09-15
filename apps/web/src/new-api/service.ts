@@ -2,7 +2,7 @@ import axios from "axios";
 import { APIResponse } from "front/new-types/responseAPI";
 
 const baseURL = 'http://apis.data.go.kr/1543061/abandonmentPublicSrvc'
-const serviceKey = 'GsGMbaDETPd05r326o0ICejVO%2BU%2FXwTQES1Tf8Vl3wL0fuYEMxV%2F3Ai2pLmcPFT9yWXTlE9DwTf7H1dR3ezWgg%3D%3D'
+const serviceKey = 'GsGMbaDETPd05r326o0ICejVO+U/XwTQES1Tf8Vl3wL0fuYEMxV/3Ai2pLmcPFT9yWXTlE9DwTf7H1dR3ezWgg=='
 
 export const serviceAPI = axios.create({
     baseURL : baseURL,
@@ -14,16 +14,8 @@ export const getAPI = async <T, K>(props : T, path : string) => {
         params : {
             ...props,
             serviceKey : serviceKey,
+            _type: 'json'
         }
-    }).then((res) => res)
-    if (data.headers["Content-Type"]?.toString().includes('xml')) {
-        return {
-            response : {
-                header : {
-                    resultMsg : '서버 오류'
-                },
-            }
-        } as APIResponse<K>
-    }
-    return data.data.response.body.items;
+    })
+    return data.data.response.body.items.item;
 }

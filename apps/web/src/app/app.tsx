@@ -6,6 +6,10 @@ import 'front/app/app.module.scss';
 import SiteRouter from 'front/route';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import SearchRouter from 'front/new-site/search';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Bottom } from 'front/new-component';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -16,20 +20,25 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <div className="flex h-screen">
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      {/* <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} /> */}
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="p-4 flex-1">{children}</main>
       </div>
+      <Bottom />
     </div>
   );
 };
 
 const App = () => {
+  const queryClient = new QueryClient();
   return (
-    <Layout>
-      <SiteRouter />
-    </Layout>
+    <QueryClientProvider client={queryClient}>
+      <Layout>
+        <SiteRouter />
+      </Layout>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 };
 
