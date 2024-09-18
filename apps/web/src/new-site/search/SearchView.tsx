@@ -1,8 +1,9 @@
-import { AnimalInfo, AnimalInfoResponse } from 'front/new-types/responseAPI';
 import { v4 as uuidv4 } from 'uuid';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
 import { useAnimalInfoInfinity } from 'front/hooks';
+import { AnimalCard } from './card';
+import InfiniteScroll from 'react-infinite-scroller';
 
 type Props = {
   animalInfoRequest: AnimalInfoRequestType | null;
@@ -10,34 +11,25 @@ type Props = {
 
 export const SearchView = (props: Props) => {
   const { animalInfoRequest } = props;
-  const { data, fetchNextPage } = useAnimalInfoInfinity(animalInfoRequest);
+  const { data, fetchNextPage, hasNextPage } =
+    useAnimalInfoInfinity(animalInfoRequest);
 
   return (
-    <div>
-      <div className="grid grid-cols-3 gap-3">
+    <InfiniteScroll
+      hasMore={hasNextPage}
+      loadMore={() => {
+        fetchNextPage();
+      }}
+      loader={<progress key={uuidv4()} className="progress"></progress>}
+      useWindow={false}
+    >
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
         {data?.pages?.map((animalInfo) =>
           animalInfo?.response.body.items.item?.map((animal) => {
-            return (
-              <div className="card card-side bg-base-100 shadow-xl">
-                <figure>
-                  <img src={animal.filename} alt="pet" />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">New movie is released!</h2>
-                  <p>Click the button to watch on Jetflix app.</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Watch</button>
-                  </div>
-                </div>
-              </div>
-            );
+            return <AnimalCard key={uuidv4()} item={animal} />;
           })
-        )}
+        ) ?? <div></div>}
       </div>
-
-      <button className="btn btn-ghost" onClick={() => fetchNextPage()}>
-        더 부르기
-      </button>
-    </div>
+    </InfiniteScroll>
   );
 };

@@ -1,8 +1,7 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { SearchForm } from './Form';
 import { SearchView } from './SearchView';
 import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
-import { useAnimalInfo } from 'front/hooks';
 
 export const SearchPage = () => {
   const [animalInfoRequest, SetAnimalInfoRequest] =
@@ -10,12 +9,18 @@ export const SearchPage = () => {
 
   return (
     <>
-      <SearchForm
-        submitHandler={(data) => {
-          SetAnimalInfoRequest(data);
-        }}
-      />
-      <SearchView animalInfoRequest={animalInfoRequest} />
+      <div className="grid grid-flow-col">
+        <div className="col-span-full">
+          <SearchForm
+            submitHandler={(data) => {
+              SetAnimalInfoRequest(data);
+            }}
+          />
+        </div>
+        <div className="col-span-full h-[60vh] overflow-auto">
+          <SearchView animalInfoRequest={animalInfoRequest} />
+        </div>
+      </div>
     </>
   );
 };
