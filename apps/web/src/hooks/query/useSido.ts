@@ -17,7 +17,7 @@ export const useSido = ({...props}: UseSidoProps) => {
         const data = await getSido({ numOfRows: 100, pageNo: 1 });
         return [
           init,
-          ...data,
+          ...data.response.body.items.item,
         ];
       },
     });
