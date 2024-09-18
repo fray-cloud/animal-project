@@ -1,8 +1,7 @@
-import { useKind, useShelter, useSido, useSigungu } from 'front/hooks';
 import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { DevTool } from '@hookform/devtools';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { Form } from 'front/new-component';
 import {
   initKind,
@@ -17,7 +16,10 @@ import { ShelterSelect } from './select/ShelterSelect';
 import { UpkindSelect } from './select/UpkindSelect';
 import { KindSelect } from './select/KindSelect';
 
-export const SearchForm = () => {
+export const SearchForm = (props: {
+  submitHandler: SubmitHandler<AnimalInfoRequestType>;
+}) => {
+  const { submitHandler } = props;
   const { register, handleSubmit, watch, control } =
     useForm<AnimalInfoRequestType>({
       defaultValues: {
@@ -29,15 +31,9 @@ export const SearchForm = () => {
       },
     });
   //init
-
   return (
     <>
-      <Form
-        handleSubmit={handleSubmit}
-        submitHandler={(data) => {
-          console.log(data);
-        }}
-      >
+      <Form handleSubmit={handleSubmit} submitHandler={submitHandler}>
         <div className="border border-teal-700 grid grid-cols-1 gap-1 hover:border-teal-50 duration-300 sm:grid-cols-3">
           {/* 첫 번째 줄 */}
           <div className="col-span-1">
