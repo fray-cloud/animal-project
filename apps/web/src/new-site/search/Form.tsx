@@ -34,7 +34,7 @@ export const SearchForm = (props: {
   return (
     <>
       <Form handleSubmit={handleSubmit} submitHandler={submitHandler}>
-        <div className="border border-teal-700 grid grid-cols-1 gap-1 hover:border-teal-50 duration-300 sm:grid-cols-3">
+        <div className="border border-teal-700 grid grid-cols-3 gap-1 hover:border-teal-50 duration-300">
           {/* 첫 번째 줄 */}
           <div className="col-span-1">
             <SidoSelect register={register} name="upr_cd" />
@@ -52,7 +52,7 @@ export const SearchForm = (props: {
           <div />
         </div>
         <div className="h-2"></div>
-        <div className="border border-teal-700 grid grid-cols-1 gap-1 hover:border-teal-50 duration-300 sm:grid-cols-3">
+        <div className="border border-teal-700 grid grid-cols-3 gap-1 hover:border-teal-50 duration-300">
           {/* 두 번째 줄 */}
           <div className="col-span-1">
             <UpkindSelect register={register} name="upkind" />
