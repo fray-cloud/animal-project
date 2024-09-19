@@ -1,15 +1,21 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQueries, useQuery } from "@tanstack/react-query";
 import { getAnimalInfo } from "front/new-api";
 import { AnimalInfoRequestType } from "front/new-types/requestAPI";
+import { Sido } from "front/new-types/responseAPI";
 
-
-export const useAnimalInfo = (request: AnimalInfoRequestType | null | undefined) => {
-    const query = useQuery({
-      queryKey: ['animalInfo', request],
-      queryFn: async () => {
-        console.log('useAnimalInfo', request)
-        return request? await getAnimalInfo({ ...request }): undefined;
-      },
+export const useAnimalInfoSidoCount = (sidos : Sido[]) => {
+    const query = useQueries({
+      queries: sidos?.map((sido) => ({
+        queryKey: ['count', sido.orgdownNm],
+        queryFn: async () => {
+          const data = await getAnimalInfo({upr_cd : sido.orgCd, numOfRows: 1, pageNo: 1})
+          return {
+            sido : sido,
+            totalCount : data.response.body.totalCount
+          }
+        }
+      })),
+      combine: (result) => result.sort((a, b) => (b.data?.totalCount ?? 0) - (a.data?.totalCount ?? 0))
     });
     return query;
   };

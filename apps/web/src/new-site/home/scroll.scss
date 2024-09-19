@@ -1,0 +1,15 @@
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  /* 마지막 카드와 첫 번째 카드 사이에 여백을 만들기 위해 우측에 패딩을 추가합니다. */
+  display: flex;
+  will-change: transform; /* 브라우저에 애니메이션할 것을 미리 알려 친절하게 대하세요. */
+  animation: scrolling 37s linear infinite;
+}

@@ -9,7 +9,7 @@ export const KindSelect = (props: SelectProps & SelectWatchProps) => {
   const { register, watch, name } = props;
   const kind = useKind({
     init: initKind,
-    up_kind_cd: watch('upkind'),
+    up_kind_cd: watch('upkind') ?? '',
   });
   return (
     <Select labelName="종류" register={register} name={name}>
