@@ -18,7 +18,7 @@ export const useKind = ({ ...props }: UseKindProps) => {
         const data = await getKind({ up_kind_cd });
         return [
           init,
-          ...data,
+          ...data.response.body.items.item,
         ]
       },
       enabled: !!up_kind_cd
