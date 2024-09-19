@@ -17,5 +17,5 @@ export const getAPI = async <T, K>(props : T, path : string) => {
             _type: 'json'
         }
     })
-    return data.data.response.body.items.item;
+    return data.data;
 }

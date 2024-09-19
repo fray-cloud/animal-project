@@ -16,7 +16,7 @@ export const useSigungu = ({ ...props }: UseSigunguProps) => {
         const data = await getSigungu({ ...props });
         return [
           init,
-          ...data,
+          ...data.response.body.items.item,
         ]
       },
       enabled: !!upr_cd,

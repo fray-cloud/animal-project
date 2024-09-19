@@ -18,7 +18,7 @@ export const useShelter = ({ ...props }: UseShelterProps) => {
         const data = await getShelter({ ...props });
         return [
           init,
-          ...data,
+          ...data.response.body.items.item,
         ]
       },
       enabled: !!upr_cd && !!org_cd
