@@ -3,14 +3,9 @@ import { SearchPage } from './search';
 
 const SearchRouter: RouteObject[] = [
   {
-  path: '/search',
-  children: [
-    {
-      path: '',
-      Component: SearchPage,
-    },
-  ],
-}
+    path: '/search',
+    Component: SearchPage,
+  }
 ];
 
 export default SearchRouter;

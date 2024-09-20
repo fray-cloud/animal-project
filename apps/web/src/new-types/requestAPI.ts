@@ -24,13 +24,13 @@ export type KindRequestType = {
 } & RequestType
 
 export type AnimalInfoRequestType = {
-    bgnde : string,
-    endde : string,
-    upkind : string,
-    kind : string,
-    upr_cd : string,
-    org_cd : string,
-    care_reg_no : string,
-    state : string,
-    neuter_yn : string,
+    bgnde? : string,
+    endde? : string,
+    upkind? : string,
+    kind? : string,
+    upr_cd? : string,
+    org_cd? : string,
+    care_reg_no? : string,
+    state? : string,
+    neuter_yn? : string,
 } & RequestType & PagenationType

@@ -19,7 +19,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex max-h-screen max-w-screen">
       {/* <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} /> */}
       <div className="flex-1 flex flex-col">
         <Header />
