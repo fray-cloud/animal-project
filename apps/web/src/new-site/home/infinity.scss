@@ -1,0 +1,29 @@
+.InfiniteLoop {
+  // 애니메이션
+  @keyframes loop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-69.47%);
+    }
+  }
+
+  &__slider {
+    overflow-x: hidden;
+    width: 97vw;
+    display: flex-center;
+  }
+  &__inner {
+    display: flex;
+    width: fit-content;
+    animation: loop;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+
+    & > * {
+      flex-shrink: 0;
+    }
+  }
+}
