@@ -19,7 +19,7 @@ export const CountList = (props: Props) => {
         {query?.map((result) => {
           if (result.data?.sido.orgCd === '') return null;
           return (
-            <div className="shrink-0">
+            <div className="shrink-0" key={uuidv4()}>
               <div className="flex items-center gap-3">
                 <div className="avatar">
                   <div

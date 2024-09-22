@@ -5,14 +5,49 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-69.47%);
+      transform: translateX(-72.5%);
+    }
+  }
+
+  &__blur-overlay {
+    // 새로 추가된 클래스
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2%;
+      backdrop-filter: blur(4px);
+    }
+    &::before {
+      left: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(
+        -90deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 100%
+      );
     }
   }
 
   &__slider {
     overflow-x: hidden;
-    width: 97vw;
-    display: flex-center;
+    width: 40vw;
+    display: flex-left;
+    position: relative;
   }
   &__inner {
     display: flex;
@@ -20,8 +55,9 @@
     animation: loop;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-duration: 20s;
-
+    animation-duration: 25s;
+    position: relative; // 추가됨
+    z-index: 0; // 추가됨
     & > * {
       flex-shrink: 0;
     }
