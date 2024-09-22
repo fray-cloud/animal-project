@@ -1,11 +1,12 @@
 import React from 'react';
-import { CountList } from './Count';
-import { useSido } from 'front/hooks';
-import { initSido } from '../search/select/initData';
+import { Contents } from './Contents';
 
 const HomePage = () => {
-  const { data } = useSido({ init: initSido });
-  return <CountList items={data} />;
+  return (
+    <>
+      <Contents />
+    </>
+  );
 };
 
 export default HomePage;

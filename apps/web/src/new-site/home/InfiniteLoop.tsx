@@ -26,6 +26,7 @@ const InfiniteLoopSlider: React.FC<InfiniteLoopPropType> = ({
 
   return (
     <div className="InfiniteLoop__slider">
+      <div className="InfiniteLoop__blur-overlay"></div>
       <div
         className={`InfiniteLoop__inner gap-14`}
         style={style}

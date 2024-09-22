@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdOutlinePets, MdOutlineContentPasteSearch } from 'react-icons/md';
 import { FcLikePlaceholder } from 'react-icons/fc';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 export const Bottom = () => {
@@ -23,7 +23,7 @@ export const Bottom = () => {
       icon: <FcLikePlaceholder />,
     },
   ];
-
+  const navigate = useNavigate();
   return (
     <div className="btm-nav btm-nav-xs">
       {barItem.map((bar) => {
@@ -32,7 +32,7 @@ export const Bottom = () => {
             key={uuidv4()}
             className={location.pathname == bar.path ? 'active' : ''}
           >
-            <a href={bar.path}>{bar.icon}</a>
+            <a onClick={() => navigate(bar.path)}>{bar.icon}</a>
           </button>
         );
       })}
