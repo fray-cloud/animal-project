@@ -10,7 +10,7 @@ import { Bottom } from 'front/new-component';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="flex max-h-screen max-w-screen">
+    <div className="flex max-max-h-screen max-w-screen max-w-screen">
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="p-4 flex-1">{children}</main>
