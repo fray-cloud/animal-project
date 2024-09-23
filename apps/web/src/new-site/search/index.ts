@@ -1,4 +1,4 @@
-import { useRoutes, RouteObject } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 import { SearchPage } from './search';
 
 const SearchRouter: RouteObject[] = [
