@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Workspace
 
-Nx 19.6 monorepo (`@animal-project/source`). Two runnable apps plus their e2e counterparts under `apps/`:
+Nx 22.6 monorepo (`@animal-project/source`). Two runnable apps plus their e2e counterparts under `apps/`:
 
 - `web` — React 18 + Vite (SWC) frontend. Uses MUI Joy, Tailwind/daisyUI, SCSS, React Router v6, TanStack Query, Zustand, react-hook-form.
 - `api` — NestJS 10 backend (platform-express, webpack bundler). Currently scaffolded only.
@@ -17,7 +17,7 @@ Nx targets are **inferred** from plugins in `nx.json` (`@nx/vite`, `@nx/webpack`
 ```sh
 npx nx serve web           # dev server (Vite)
 npx nx build web            # production build
-npx nx test web             # vitest (web uses @nx/vite test target)
+npx nx test web             # jest (via @nx/jest inferred target)
 npx nx lint web             # eslint
 npx nx serve api            # nest dev (webpack)
 npx nx build api
@@ -26,7 +26,7 @@ npx nx e2e web-e2e          # playwright
 npx nx e2e api-e2e          # jest-based api e2e
 ```
 
-Run a single test: `npx nx test web -- -t "test name"` (vitest) or `npx nx test api -- -t "test name"` (jest). Affected-only: `npx nx affected -t test`.
+Run a single test: `npx nx test web -- -t "test name"` or `npx nx test api -- -t "test name"` (both jest). Affected-only: `npx nx affected -t test`.
 
 There are **no root `scripts` in `package.json`** — always go through `npx nx`.
 

@@ -8,7 +8,7 @@ interface PagenationType {
     pageNo : number,
 }
 
-export type SidoRequestType = {} & RequestType & PagenationType
+export type SidoRequestType = RequestType & PagenationType
 
 export type SigunguRequestType = {
     upr_cd? : string

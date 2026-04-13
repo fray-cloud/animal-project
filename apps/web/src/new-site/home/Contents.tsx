@@ -2,7 +2,7 @@ import React from 'react';
 import './contents.scss';
 import { useNavigate } from 'react-router-dom';
 
-type Props = {};
+type Props = Record<string, never>;
 
 const SearchContentsItem = () => {
   const navigate = useNavigate();

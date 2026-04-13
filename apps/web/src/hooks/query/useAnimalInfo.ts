@@ -28,7 +28,9 @@ export const useAnimalInfoInfinity = (request: AnimalInfoRequestType | null | un
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
-      return lastPage?.response.body.totalCount! / lastPage?.response.body.numOfRows! > lastPage?.response.body.pageNo! ? lastPage?.response.body.pageNo! + 1 : undefined
+      const body = lastPage?.response.body;
+      if (!body) return undefined;
+      return body.totalCount / body.numOfRows > body.pageNo ? body.pageNo + 1 : undefined;
     }
   })
 
