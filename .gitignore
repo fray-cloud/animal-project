@@ -44,3 +44,4 @@ Thumbs.db
 vite.config.*.timestamp*
 .claude/worktrees
 .claude/settings.local.json.claude/scheduled_tasks.lock
+apps/web/.next
