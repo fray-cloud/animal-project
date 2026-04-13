@@ -18,9 +18,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      # DTE temporarily disabled to surface task output in GH Actions
-      # logs while debugging web:test failure.
-      # - run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
+      # This enables task distribution via Nx Cloud
+      # Run this command as early as possible, before dependencies are installed
+      # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
+      - run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
 
       # Cache node_modules
       - uses: actions/setup-node@v4
@@ -37,4 +38,7 @@ jobs:
       # e2e-ci temporarily excluded: Nx Cloud agents lack Playwright
       # browser binaries and the workflow has no `playwright install`
       # step. Tracked separately — restore once agent setup is fixed.
-      - run: npx nx affected -t lint test build --output-style=stream --verbose
+      # e2e-ci temporarily excluded: Nx Cloud agents lack Playwright
+      # browser binaries and the workflow has no `playwright install`
+      # step. Tracked in #18 — restore once agent setup is fixed.
+      - run: npx nx affected -t lint test build
