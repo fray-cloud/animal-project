@@ -1,21 +1,10 @@
 import axios from 'axios';
 import { APIResponse } from '@animal-project/shared-types';
 
-const baseURL = 'http://apis.data.go.kr/1543061/abandonmentPublicSrvc';
-
-// NEXT_PUBLIC_ because getAPI runs in the browser (TanStack Query
-// client). The key is still visible in the Network tab; moving getAPI
-// behind a Next Route Handler (apps/web/app/api/**) removes even that
-// exposure and is tracked under #9 (Vercel deploy). This change only
-// removes the literal key from git history so it can be rotated.
-const serviceKey = process.env.NEXT_PUBLIC_DATA_GO_KR_SERVICE_KEY;
-
-if (!serviceKey) {
-  // eslint-disable-next-line no-console
-  console.error(
-    'NEXT_PUBLIC_DATA_GO_KR_SERVICE_KEY is not set. See apps/web/.env.example.'
-  );
-}
+// Calls go to the Next Route Handler at app/api/data-go-kr/[...path],
+// which proxies to the public-data-portal and injects the server-only
+// DATA_GO_KR_SERVICE_KEY. The browser never sees the key.
+const baseURL = '/api/data-go-kr';
 
 export const serviceAPI = axios.create({
   baseURL,
@@ -26,8 +15,6 @@ export const getAPI = async <T, K>(props: T, path: string) => {
   const data = await serviceAPI.get<APIResponse<K>>(path, {
     params: {
       ...props,
-      serviceKey,
-      _type: 'json',
     },
   });
   return data.data;
