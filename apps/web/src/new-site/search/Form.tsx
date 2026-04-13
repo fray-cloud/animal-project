@@ -3,6 +3,7 @@ import React from 'react';
 import { DevTool } from '@hookform/devtools';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Form } from 'front/new-component';
+import { Button } from 'front/new-component/ui/button';
 import {
   initKind,
   initShelter,
@@ -63,9 +64,9 @@ export const SearchForm = (props: {
           <div className="col-span-1"></div> {/* 필요 시 빈 공간으로 유지 */}
         </div>
         <div className="flex justify-end mt-4">
-          <button type="submit" className="btn btn-sm">
+          <Button type="submit" size="sm">
             Submit
-          </button>
+          </Button>
         </div>
       </Form>
       <DevTool control={control} />

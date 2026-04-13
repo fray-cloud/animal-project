@@ -1,8 +1,11 @@
+'use client';
+
 import { AnimalInfo } from '@animal-project/shared-types';
-import React, { useState } from 'react';
+import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useLike } from 'front/hooks/store';
+import { Card, CardContent } from 'front/new-component/ui/card';
 
 type Props = {
   item: AnimalInfo;
@@ -13,34 +16,33 @@ export const AnimalCard = (props: Props) => {
   const { like, toggleLike } = useLike({ likeItem: { ...item, like: false } });
 
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <Card className="relative shadow-xl">
       <div className="absolute top-3 right-3">
         <motion.div whileTap={{ scale: 1.3 }} onClick={() => toggleLike()}>
-          <FaHeart className={`${like ? 'text-red-500' : ''}`} />
+          <FaHeart className={like ? 'text-red-500' : ''} />
         </motion.div>
       </div>
       <figure className="px-10 pt-10">
         <img src={item.popfile} alt="pet" className="rounded-xl h-32" />
       </figure>
-      <div className="card-body items-center text-center">
-        <table className="table table-sm">
-          <thead></thead>
+      <CardContent className="flex flex-col items-center text-center">
+        <table className="text-sm">
           <tbody>
-            <tr className="hover">
-              <th>종류</th>
-              <td>{item.kindCd}</td>
+            <tr>
+              <th className="px-2 py-1 font-medium">종류</th>
+              <td className="px-2 py-1">{item.kindCd}</td>
             </tr>
-            <tr className="hover">
-              <th>성별</th>
-              <td>{item.sexCd}</td>
+            <tr>
+              <th className="px-2 py-1 font-medium">성별</th>
+              <td className="px-2 py-1">{item.sexCd}</td>
             </tr>
-            <tr className="hover">
-              <th>나이</th>
-              <td>{item.age}</td>
+            <tr>
+              <th className="px-2 py-1 font-medium">나이</th>
+              <td className="px-2 py-1">{item.age}</td>
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
