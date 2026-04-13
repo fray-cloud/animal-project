@@ -71,8 +71,7 @@
       "application": {
         "babel": true,
         "style": "scss",
-        "linter": "eslint",
-        "bundler": "vite"
+        "linter": "eslint"
       },
       "component": {
         "style": "scss"
