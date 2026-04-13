@@ -5,16 +5,21 @@ import { CountList } from 'front/new-site/home/Count';
 import { initSido } from 'front/new-site/search/select/initData';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { Button } from 'front/new-component/ui/button';
 
 const Header: React.FC = () => {
   const { data } = useSido({ init: initSido });
   const router = useRouter();
   return (
-    <div className="navbar bg-neutral text-neutral-content">
+    <div className="flex items-center justify-between gap-4 bg-neutral-900 px-4 py-2 text-neutral-100">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl" onClick={() => router.push('/')}>
+        <Button
+          variant="ghost"
+          className="h-auto px-3 py-1 text-xl text-neutral-100 hover:bg-neutral-800 hover:text-neutral-100"
+          onClick={() => router.push('/')}
+        >
           유기동물 조회 서비스
-        </a>
+        </Button>
       </div>
       <div className="flex-none">
         <CountList items={data} />
