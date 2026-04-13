@@ -4,6 +4,7 @@ import { AnimalInfoRequestType } from '@animal-project/shared-types';
 import { useAnimalInfoInfinity } from 'front/hooks';
 import { AnimalCard } from './card';
 import InfiniteScroll from 'react-infinite-scroller';
+import { Progress } from 'front/new-component/ui/progress';
 
 type Props = {
   animalInfoRequest: AnimalInfoRequestType | null;
@@ -20,7 +21,7 @@ export const SearchView = (props: Props) => {
       loadMore={() => {
         fetchNextPage();
       }}
-      loader={<progress key={uuidv4()} className="progress"></progress>}
+      loader={<Progress key={uuidv4()} className="h-2" />}
       useWindow={false}
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
