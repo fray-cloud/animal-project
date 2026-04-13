@@ -13,6 +13,7 @@ jest.mock('front/site/home/Count', () => ({
   CountList: () => null,
 }));
 
+// eslint-disable-next-line import/first
 import Header from './header';
 
 describe('Header', () => {

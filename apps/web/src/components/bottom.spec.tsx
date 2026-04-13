@@ -8,6 +8,7 @@ jest.mock('next/navigation', () => ({
   usePathname: () => mockPathname,
 }));
 
+// eslint-disable-next-line import/first
 import { Bottom } from './bottom';
 
 describe('Bottom', () => {
