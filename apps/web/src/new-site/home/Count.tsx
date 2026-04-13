@@ -1,7 +1,7 @@
 import { useAnimalInfoSidoCount } from 'front/hooks';
 import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
-import { Sido } from 'front/new-types/responseAPI';
+import { Sido } from '@animal-project/shared-types';
 import InfiniteLoopSlider from './InfiniteLoop';
 import './infinity.scss';
 

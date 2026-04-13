@@ -1,4 +1,4 @@
-import { Kind, Shelter, Sido, Sigungu } from "front/new-types/responseAPI";
+import { Kind, Shelter, Sido, Sigungu } from "@animal-project/shared-types";
 
 
 export const initSido: Sido = {

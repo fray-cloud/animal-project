@@ -2,7 +2,7 @@ import { useSido } from 'front/hooks';
 import React from 'react';
 import { initSido, Upkinds } from './initData';
 import { UseFormRegister } from 'react-hook-form';
-import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
+import { AnimalInfoRequestType } from '@animal-project/shared-types';
 import { Select, SelectProps } from './Select';
 
 export const UpkindSelect = (props: SelectProps) => {

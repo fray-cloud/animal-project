@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { SearchForm } from './Form';
 import { SearchView } from './SearchView';
-import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
+import { AnimalInfoRequestType } from '@animal-project/shared-types';
 import { motion, useScroll } from 'framer-motion';
 
 export const SearchPage = () => {

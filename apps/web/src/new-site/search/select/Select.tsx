@@ -1,4 +1,4 @@
-import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
+import { AnimalInfoRequestType } from '@animal-project/shared-types';
 import React from 'react';
 import { UseFormRegister, UseFormWatch } from 'react-hook-form';
 
