@@ -1,5 +1,7 @@
-import { HomeClient } from './home-client';
+'use client';
+
+import HomePage from 'front/new-site/home';
 
 export default function Page() {
-  return <HomeClient />;
+  return <HomePage />;
 }
