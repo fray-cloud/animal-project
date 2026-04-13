@@ -10,8 +10,8 @@
     "cssVariables": true
   },
   "aliases": {
-    "components": "front/new-component",
-    "ui": "front/new-component/ui",
+    "components": "front/components",
+    "ui": "front/components/ui",
     "utils": "front/lib/utils",
     "lib": "front/lib",
     "hooks": "front/hooks"

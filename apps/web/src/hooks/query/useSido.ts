@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getSido } from 'front/new-api';
+import { getSido } from 'front/api';
 import { Sido } from '@animal-project/shared-types';
 
 type UseSidoProps = {

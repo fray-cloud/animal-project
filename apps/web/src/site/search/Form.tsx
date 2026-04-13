@@ -2,8 +2,8 @@ import { AnimalInfoRequestType } from '@animal-project/shared-types';
 import React from 'react';
 import { DevTool } from '@hookform/devtools';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Form } from 'front/new-component';
-import { Button } from 'front/new-component/ui/button';
+import { Form } from 'front/components';
+import { Button } from 'front/components/ui/button';
 import {
   initKind,
   initShelter,

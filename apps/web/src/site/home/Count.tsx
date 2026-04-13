@@ -6,8 +6,8 @@ import React from 'react';
 import { Sido } from '@animal-project/shared-types';
 import InfiniteLoopSlider from './InfiniteLoop';
 import './infinity.scss';
-import { Avatar, AvatarImage } from 'front/new-component/ui/avatar';
-import { Skeleton } from 'front/new-component/ui/skeleton';
+import { Avatar, AvatarImage } from 'front/components/ui/avatar';
+import { Skeleton } from 'front/components/ui/skeleton';
 
 type Props = {
   items: Sido[];

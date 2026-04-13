@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getSigungu } from "front/new-api";
+import { getSigungu } from "front/api";
 import { SigunguRequestType } from "@animal-project/shared-types";
 import { Sigungu } from "@animal-project/shared-types";
 
