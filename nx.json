@@ -54,12 +54,6 @@
         "serveTargetName": "serve",
         "previewTargetName": "preview"
       }
-    },
-    {
-      "plugin": "@nx/vitest",
-      "options": {
-        "testTargetName": "test"
-      }
     }
   ],
   "targetDefaults": {
