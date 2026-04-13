@@ -3,6 +3,7 @@
 import React from 'react';
 import './contents.scss';
 import { useRouter } from 'next/navigation';
+import { Button } from 'front/new-component/ui/button';
 
 type Props = Record<string, never>;
 
@@ -22,12 +23,12 @@ const SearchContentsItem = () => {
             당신의 책임있는 사랑이 그들의 삶을 바꿀 수 있습니다.
           </p>
         </div>
-        <button
-          className="btn btn-link btn-primary"
+        <Button
+          variant="link"
           onClick={() => router.push('/search')}
         >
           조회하기
-        </button>
+        </Button>
       </div>
     </div>
   );
