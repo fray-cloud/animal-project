@@ -3,7 +3,7 @@ import React from 'react';
 import { AnimalCard } from '../search/card';
 import { v4 as uuidv4 } from 'uuid';
 
-type Props = {};
+type Props = Record<string, never>;
 
 export const LikeView = (props: Props) => {
   const { likes } = useLikeStore();
