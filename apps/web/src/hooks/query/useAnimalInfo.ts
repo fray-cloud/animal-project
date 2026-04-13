@@ -1,5 +1,5 @@
 import { useInfiniteQuery, useQueries, useQuery } from "@tanstack/react-query";
-import { getAnimalInfo } from "front/new-api";
+import { getAnimalInfo } from "front/api";
 import { AnimalInfoRequestType } from "@animal-project/shared-types";
 import { Sido } from "@animal-project/shared-types";
 

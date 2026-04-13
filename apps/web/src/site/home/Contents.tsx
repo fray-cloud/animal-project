@@ -3,7 +3,7 @@
 import React from 'react';
 import './contents.scss';
 import { useRouter } from 'next/navigation';
-import { Button } from 'front/new-component/ui/button';
+import { Button } from 'front/components/ui/button';
 
 type Props = Record<string, never>;
 

@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import './globals.css';
 import { Providers } from './providers';
-import Header from 'front/new-component/header';
-import { Bottom } from 'front/new-component';
+import Header from 'front/components/header';
+import { Bottom } from 'front/components';
 
 export const metadata = {
   title: 'Animal Project',

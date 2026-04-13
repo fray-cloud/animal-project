@@ -1,11 +1,11 @@
 'use client';
 
 import { useSido } from 'front/hooks';
-import { CountList } from 'front/new-site/home/Count';
-import { initSido } from 'front/new-site/search/select/initData';
+import { CountList } from 'front/site/home/Count';
+import { initSido } from 'front/site/search/select/initData';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from 'front/new-component/ui/button';
+import { Button } from 'front/components/ui/button';
 
 const Header: React.FC = () => {
   const { data } = useSido({ init: initSido });

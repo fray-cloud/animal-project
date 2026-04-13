@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getShelter } from "front/new-api";
+import { getShelter } from "front/api";
 import { ShelterRequestType } from "@animal-project/shared-types";
 import { Shelter } from "@animal-project/shared-types";
 

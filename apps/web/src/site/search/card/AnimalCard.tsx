@@ -5,7 +5,7 @@ import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useLike } from 'front/hooks/store';
-import { Card, CardContent } from 'front/new-component/ui/card';
+import { Card, CardContent } from 'front/components/ui/card';
 
 type Props = {
   item: AnimalInfo;

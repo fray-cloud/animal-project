@@ -4,7 +4,7 @@ import { AnimalInfoRequestType } from '@animal-project/shared-types';
 import { useAnimalInfoInfinity } from 'front/hooks';
 import { AnimalCard } from './card';
 import InfiniteScroll from 'react-infinite-scroller';
-import { Progress } from 'front/new-component/ui/progress';
+import { Progress } from 'front/components/ui/progress';
 
 type Props = {
   animalInfoRequest: AnimalInfoRequestType | null;
