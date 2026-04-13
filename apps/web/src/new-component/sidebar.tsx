@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { MdOutlinePets, MdOutlineContentPasteSearch } from 'react-icons/md';
 import { FcLikePlaceholder } from 'react-icons/fc';

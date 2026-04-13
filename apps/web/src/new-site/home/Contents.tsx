@@ -1,11 +1,13 @@
+'use client';
+
 import React from 'react';
 import './contents.scss';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 type Props = Record<string, never>;
 
 const SearchContentsItem = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   return (
     <div className="contents-font">
       <div className="flex flex-col text-center">
@@ -22,7 +24,7 @@ const SearchContentsItem = () => {
         </div>
         <button
           className="btn btn-link btn-primary"
-          onClick={() => navigate('/search')}
+          onClick={() => router.push('/search')}
         >
           조회하기
         </button>

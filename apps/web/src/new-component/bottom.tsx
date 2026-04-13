@@ -1,11 +1,13 @@
+'use client';
+
 import React from 'react';
 import { MdOutlinePets, MdOutlineContentPasteSearch } from 'react-icons/md';
 import { FcLikePlaceholder } from 'react-icons/fc';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { usePathname, useRouter } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 
 export const Bottom = () => {
-  const location = useLocation();
+  const pathname = usePathname();
   const barItem = [
     {
       name: '홈',
@@ -23,16 +25,16 @@ export const Bottom = () => {
       icon: <FcLikePlaceholder />,
     },
   ];
-  const navigate = useNavigate();
+  const router = useRouter();
   return (
     <div className="btm-nav btm-nav-xs">
       {barItem.map((bar) => {
         return (
           <button
             key={uuidv4()}
-            className={location.pathname == bar.path ? 'active' : ''}
+            className={pathname === bar.path ? 'active' : ''}
           >
-            <a onClick={() => navigate(bar.path)}>{bar.icon}</a>
+            <a onClick={() => router.push(bar.path)}>{bar.icon}</a>
           </button>
         );
       })}

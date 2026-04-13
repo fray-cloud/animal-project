@@ -1,5 +1,7 @@
-import { LikeClient } from './like-client';
+'use client';
+
+import LikePage from 'front/new-site/like/LikePage';
 
 export default function Page() {
-  return <LikeClient />;
+  return <LikePage />;
 }
