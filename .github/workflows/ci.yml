@@ -38,4 +38,4 @@ jobs:
       # e2e-ci temporarily excluded: Nx Cloud agents lack Playwright
       # browser binaries and the workflow has no `playwright install`
       # step. Tracked separately — restore once agent setup is fixed.
-      - run: npx nx affected -t lint test build
+      - run: npx nx affected -t lint test build --output-style=stream --verbose
