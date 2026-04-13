@@ -1,10 +1,34 @@
 /* eslint-disable */
+import { spawn, ChildProcess } from 'child_process';
+import { join } from 'path';
+import axios from 'axios';
+
 var __TEARDOWN_MESSAGE__: string;
 
 module.exports = async function () {
-  // Start services that that the app needs to run (e.g. database, docker-compose, etc.).
-  console.log('\nSetting up...\n');
+  console.log('\nStarting api for e2e...');
 
-  // Hint: Use `globalThis` to pass variables to global teardown.
-  globalThis.__TEARDOWN_MESSAGE__ = '\nTearing down...\n';
+  const apiMain = join(process.cwd(), 'dist/apps/api/main.js');
+  const child = spawn('node', [apiMain], {
+    stdio: 'ignore',
+    detached: false,
+    env: { ...process.env, PORT: '3000' },
+  });
+
+  (globalThis as any).__API_PROCESS__ = child;
+
+  const host = process.env.HOST ?? 'localhost';
+  const port = process.env.PORT ?? '3000';
+  const url = `http://${host}:${port}/api`;
+  const deadline = Date.now() + 15000;
+  while (Date.now() < deadline) {
+    try {
+      await axios.get(url);
+      break;
+    } catch {
+      await new Promise((r) => setTimeout(r, 200));
+    }
+  }
+
+  globalThis.__TEARDOWN_MESSAGE__ = '\nTearing down api...\n';
 };

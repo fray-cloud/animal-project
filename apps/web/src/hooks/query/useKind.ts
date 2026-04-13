@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { getKind } from "front/new-api";
-import { KindRequestType } from "front/new-types/requestAPI";
-import { Kind } from "front/new-types/responseAPI";
+import { getKind } from "front/api";
+import { KindRequestType } from "@animal-project/shared-types";
+import { Kind } from "@animal-project/shared-types";
 
 type UseKindProps = {
   init : Kind

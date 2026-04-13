@@ -1,7 +1,7 @@
 import { useInfiniteQuery, useQueries, useQuery } from "@tanstack/react-query";
-import { getAnimalInfo } from "front/new-api";
-import { AnimalInfoRequestType } from "front/new-types/requestAPI";
-import { Sido } from "front/new-types/responseAPI";
+import { getAnimalInfo } from "front/api";
+import { AnimalInfoRequestType } from "@animal-project/shared-types";
+import { Sido } from "@animal-project/shared-types";
 
 export const useAnimalInfoSidoCount = (sidos : Sido[]) => {
     const query = useQueries({
@@ -28,7 +28,9 @@ export const useAnimalInfoInfinity = (request: AnimalInfoRequestType | null | un
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
-      return lastPage?.response.body.totalCount! / lastPage?.response.body.numOfRows! > lastPage?.response.body.pageNo! ? lastPage?.response.body.pageNo! + 1 : undefined
+      const body = lastPage?.response.body;
+      if (!body) return undefined;
+      return body.totalCount / body.numOfRows > body.pageNo ? body.pageNo + 1 : undefined;
     }
   })
 

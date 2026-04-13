@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { AnimalInfo } from 'front/new-types/responseAPI';
+import { AnimalInfo } from '@animal-project/shared-types';
 import { useEffect, useState } from 'react';
 
 type AnimalLikeType = AnimalInfo & {like: boolean};
@@ -39,7 +39,7 @@ export const useLike = (props: UseLikeType) => {
         setLike(isLiked);
     }, [likes, likeItem.desertionNo]);
 
-    // 좋아요 추가/제거 함수
+    // 북마크 추가/제거 함수
     const toggleLike = () => {
         if (like) {
             removeLike(likeItem);

@@ -17,15 +17,13 @@
       "{workspaceRoot}/.github/workflows/ci.yml"
     ]
   },
-  "nxCloudAccessToken": "YzcxYWY3ZjUtYjQzNy00YTUyLTk2ZTYtN2E5M2ViY2Y0ZTVhfHJlYWQtd3JpdGU=",
   "plugins": [
     {
-      "plugin": "@nx/vite/plugin",
+      "plugin": "@nx/next/plugin",
       "options": {
         "buildTargetName": "build",
-        "testTargetName": "test",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview",
+        "devTargetName": "serve",
+        "startTargetName": "start",
         "serveStaticTargetName": "serve-static"
       }
     },
@@ -60,6 +58,11 @@
   "targetDefaults": {
     "e2e-ci--**/*": {
       "dependsOn": ["^build"]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "generators": {
@@ -67,8 +70,7 @@
       "application": {
         "babel": true,
         "style": "scss",
-        "linter": "eslint",
-        "bundler": "vite"
+        "linter": "eslint"
       },
       "component": {
         "style": "scss"
@@ -78,5 +80,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "analytics": true
 }

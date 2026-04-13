@@ -40,3 +40,16 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
+
+vite.config.*.timestamp*
+.claude/worktrees
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+apps/web/.next
+
+# env
+.env
+.env.local
+.env.*.local
+
+.gstack/

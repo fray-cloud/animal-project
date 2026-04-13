@@ -1,0 +1,74 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Palette #30: #FAFAFA #5D4037 #FFE0B2 #8D6E63 #F57F17 */
+    --background: 36 30% 98%;
+    --foreground: 14 35% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 14 35% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 14 35% 14%;
+    --primary: 14 26% 29%;          /* #5D4037 warm brown */
+    --primary-foreground: 36 30% 98%;
+    --secondary: 36 100% 85%;       /* #FFE0B2 peach */
+    --secondary-foreground: 14 26% 29%;
+    --muted: 36 50% 93%;
+    --muted-foreground: 16 18% 47%; /* #8D6E63 tan */
+    --accent: 28 92% 53%;           /* #F57F17 deep orange */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 28 25% 87%;
+    --input: 28 25% 87%;
+    --ring: 14 26% 29%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 14 25% 8%;
+    --foreground: 36 40% 88%;
+    --card: 14 22% 11%;
+    --card-foreground: 36 40% 88%;
+    --popover: 14 22% 11%;
+    --popover-foreground: 36 40% 88%;
+    --primary: 36 100% 85%;
+    --primary-foreground: 14 26% 29%;
+    --secondary: 14 22% 18%;
+    --secondary-foreground: 36 40% 88%;
+    --muted: 14 22% 15%;
+    --muted-foreground: 28 30% 55%;
+    --accent: 28 92% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 14 22% 22%;
+    --input: 14 22% 22%;
+    --ring: 36 100% 85%;
+  }
+}
+
+body {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .font-display {
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+}
