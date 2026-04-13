@@ -29,9 +29,7 @@ export const CountList = (props: Props) => {
                   >
                     {result.isLoading ? null : (
                       <img
-                        src={`${import.meta.env.BASE_URL}logo/${
-                          result.data?.sido.orgCd
-                        }.png`}
+                        src={`/logo/${result.data?.sido.orgCd}.png`}
                         alt="logo"
                       />
                     )}
