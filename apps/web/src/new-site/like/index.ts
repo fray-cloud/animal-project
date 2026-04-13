@@ -1,12 +1,7 @@
 import { RouteObject } from 'react-router-dom';
-import LikePage from './LikePage';
 
-
-const LikeRouter: RouteObject[] = [
-  {
-    path: '/like',
-    Component: LikePage,
-  }
-];
+// /like is now served by the file-system route at
+// apps/web/app/like/page.tsx.
+const LikeRouter: RouteObject[] = [];
 
 export default LikeRouter;
