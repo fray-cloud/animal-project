@@ -46,3 +46,9 @@ vite.config.*.timestamp*
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
 apps/web/.next
+
+# env
+.env
+.env.local
+.env.*.local
+
