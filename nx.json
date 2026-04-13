@@ -20,11 +20,11 @@
   "nxCloudAccessToken": "YzcxYWY3ZjUtYjQzNy00YTUyLTk2ZTYtN2E5M2ViY2Y0ZTVhfHJlYWQtd3JpdGU=",
   "plugins": [
     {
-      "plugin": "@nx/vite/plugin",
+      "plugin": "@nx/next/plugin",
       "options": {
         "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview",
+        "devTargetName": "serve",
+        "startTargetName": "start",
         "serveStaticTargetName": "serve-static"
       }
     },
