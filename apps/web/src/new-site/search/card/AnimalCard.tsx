@@ -23,7 +23,7 @@ export const AnimalCard = (props: Props) => {
         </motion.div>
       </div>
       <figure className="px-10 pt-10">
-        <img src={item.popfile} alt="pet" className="rounded-xl h-32" />
+        <img src={item.popfile1} alt="pet" className="rounded-xl h-32" />
       </figure>
       <CardContent className="flex flex-col items-center text-center">
         <table className="text-sm">
