@@ -9,8 +9,9 @@ jest.mock('front/hooks', () => ({
   useSido: () => ({ data: [] }),
 }));
 
-jest.mock('front/site/home/Count', () => ({
-  CountList: () => null,
+// AnimatedCityCarousel imports useAnimalInfoSidoCount — stub it out
+jest.mock('front/site/home/AnimatedCityCarousel', () => ({
+  AnimatedCityCarousel: () => null,
 }));
 
 // eslint-disable-next-line import/first
@@ -21,14 +22,14 @@ describe('Header', () => {
     mockPush.mockReset();
   });
 
-  it('renders the title link', () => {
+  it('renders the logo text', () => {
     render(<Header />);
-    expect(screen.getByText('유기동물 조회 서비스')).toBeTruthy();
+    expect(screen.getByText('유기동물 조회')).toBeTruthy();
   });
 
-  it('navigates to / when the title is clicked', () => {
+  it('navigates to / when the logo button is clicked', () => {
     render(<Header />);
-    fireEvent.click(screen.getByText('유기동물 조회 서비스'));
+    fireEvent.click(screen.getByText('유기동물 조회'));
     expect(mockPush).toHaveBeenCalledWith('/');
   });
 });

@@ -20,12 +20,13 @@ export type SelectWatchProps = {
 export const Select = (props: Props & SelectProps) => {
   const { children, labelName, register, name } = props;
   return (
-    <label className="flex flex-col gap-1">
-      <span className="text-xs text-muted-foreground">{labelName}</span>
+    <label className="flex flex-col gap-0.5">
+      <span className="text-xs font-medium text-muted-foreground">{labelName}</span>
       <select
         className={cn(
-          'h-8 rounded-md border border-input bg-background px-2 text-xs',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
+          'h-8 rounded-lg border border-input bg-background px-2 text-xs text-foreground',
+          'transition-colors hover:border-primary/40',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1'
         )}
         {...register(name)}
       >

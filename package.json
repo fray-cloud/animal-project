@@ -10,9 +10,12 @@
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
     "@radix-ui/react-avatar": "^1.1.11",
+    "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-progress": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
+    "@types/animejs": "^3.1.13",
     "@types/aws-lambda": "^8.10.161",
+    "animejs": "^3.2.2",
     "axios": "^1.6.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -25,7 +28,8 @@
     "rxjs": "^7.8.0",
     "tailwind-merge": "^3.5.0",
     "tailwindcss-animate": "^1.0.7",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",

@@ -18,7 +18,7 @@ export const initShelter:Shelter = {
   };
 
 export const initKind: Kind = {
-    knm: '모두',
+    kindNm: '모두',
     kindCd: '',
   };
 

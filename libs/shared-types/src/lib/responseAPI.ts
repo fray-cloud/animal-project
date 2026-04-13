@@ -38,24 +38,27 @@ export interface APIResponse<T> {
 
   export interface Kind {
     kindCd: string;
-    knm: string;
+    kindNm: string;
   }
 
   export type KindResponse = APIResponse<Kind>;
 
   export interface AnimalInfo {
-    desertionNo: string; // 유기번호
-    filename: string; // Thumbnail Image URL
-    happenDt: string; // 접수일 (YYYYMMDD)
-    happenPlace: string; // 발견장소
-    kindCd: string; // 품종
-    colorCd: string; // 색상
-    age: string; // 나이
-    weight: string; // 체중 (Kg 단위)
-    noticeNo: string; // 공고번호
-    noticeSdt: string; // 공고시작일 (YYYYMMDD)
-    noticeEdt: string; // 공고종료일 (YYYYMMDD)
-    popfile1: string; // Image URL (v2 API: up to 8 images popfile1..popfile8)
+    desertionNo: string;   // 유기번호
+    happenDt: string;      // 접수일 (YYYYMMDD)
+    happenPlace: string;   // 발견장소
+    kindCd: string;         // 품종 코드
+    kindNm?: string;        // 품종명 (예: 믹스견) — v2 신규
+    kindFullNm?: string;    // 품종 전체명 (예: [개] 믹스견) — v2 신규
+    upKindCd?: string;      // 축종 코드 — v2 신규
+    upKindNm?: string;      // 축종명 (개/고양이/기타) — v2 신규
+    colorCd: string;       // 색상
+    age: string;           // 나이
+    weight: string;        // 체중 (Kg)
+    noticeNo: string;      // 공고번호
+    noticeSdt: string;     // 공고시작일 (YYYYMMDD)
+    noticeEdt: string;     // 공고종료일 (YYYYMMDD)
+    popfile1: string;      // 이미지 URL (v2: popfile1~8)
     popfile2?: string;
     popfile3?: string;
     popfile4?: string;
@@ -63,17 +66,18 @@ export interface APIResponse<T> {
     popfile6?: string;
     popfile7?: string;
     popfile8?: string;
-    processState: string; // 상태 (예: 보호중)
-    sexCd: string; // 성별 (M: 수컷, F: 암컷, Q: 미상)
-    neuterYn: string; // 중성화 여부 (Y: 예, N: 아니오, U: 미상)
-    specialMark: string; // 특징
-    careNm: string; // 보호소 이름
-    careTel: string; // 보호소 전화번호
-    careAddr: string; // 보호소 주소
-    orgNm: string; // 관할기관
-    chargeNm: string; // 담당자
-    officetel: string; // 담당자 연락처
-    noticeComment?: string; // 특이사항 (optional)
+    processState: string;  // 상태 (보호중 등)
+    sexCd: string;         // 성별 (M: 수컷, F: 암컷, Q: 미상)
+    neuterYn: string;      // 중성화 (Y/N/U)
+    specialMark: string;   // 특징
+    careRegNo?: string;    // 보호소 등록번호
+    careNm: string;        // 보호소 이름
+    careTel: string;       // 보호소 전화번호
+    careAddr: string;      // 보호소 주소
+    careOwnerNm?: string;  // 보호소 소유자 — v2 신규
+    orgNm: string;         // 관할기관
+    updTm?: string;        // 최종수정일시 — v2 신규
+    noticeComment?: string; // 특이사항
   }
   
   export type AnimalInfoResponse = APIResponse<AnimalInfo>;

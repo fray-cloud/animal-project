@@ -39,7 +39,7 @@ export const useLike = (props: UseLikeType) => {
         setLike(isLiked);
     }, [likes, likeItem.desertionNo]);
 
-    // 좋아요 추가/제거 함수
+    // 북마크 추가/제거 함수
     const toggleLike = () => {
         if (like) {
             removeLike(likeItem);

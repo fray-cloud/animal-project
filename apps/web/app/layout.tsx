@@ -14,11 +14,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ko">
       <body>
         <Providers>
-          <div className="flex max-max-h-screen max-w-screen max-w-screen">
-            <div className="flex-1 flex flex-col">
-              <Header />
-              <main className="p-4 flex-1">{children}</main>
-            </div>
+          <div className="flex min-h-screen flex-col bg-background">
+            <Header />
+            <main
+              className="flex-1"
+              style={{
+                paddingTop: 'calc(48px + max(env(safe-area-inset-top, 0px), 0px))',
+                paddingBottom: 'calc(49px + env(safe-area-inset-bottom, 0px))',
+              }}
+            >
+              <div className="mx-auto w-full max-w-2xl px-4 py-4">
+                {children}
+              </div>
+            </main>
             <Bottom />
           </div>
         </Providers>

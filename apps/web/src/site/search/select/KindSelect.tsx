@@ -13,13 +13,11 @@ export const KindSelect = (props: SelectProps & SelectWatchProps) => {
   });
   return (
     <Select labelName="종류" register={register} name={name}>
-      {kind.data?.map((kind, index) => {
-        return (
-          <option key={index} value={kind.kindCd}>
-            {kind.knm}
-          </option>
-        );
-      })}
+      {kind.data?.map((item, index) => (
+        <option key={index} value={item.kindCd}>
+          {item.kindNm}
+        </option>
+      ))}
     </Select>
   );
 };

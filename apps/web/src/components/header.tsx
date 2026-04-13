@@ -1,30 +1,41 @@
 'use client';
 
 import { useSido } from 'front/hooks';
-import { CountList } from 'front/site/home/Count';
 import { initSido } from 'front/site/search/select/initData';
+import { AnimatedCityCarousel } from 'front/site/home/AnimatedCityCarousel';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from 'front/components/ui/button';
 
 const Header: React.FC = () => {
   const { data } = useSido({ init: initSido });
   const router = useRouter();
+
   return (
-    <div className="flex items-center justify-between gap-4 bg-neutral-900 px-4 py-2 text-neutral-100">
-      <div className="flex-1">
-        <Button
-          variant="ghost"
-          className="h-auto px-3 py-1 text-xl text-neutral-100 hover:bg-neutral-800 hover:text-neutral-100"
+    <header
+      className="fixed inset-x-0 top-0 z-50 bg-primary px-4 text-primary-foreground shadow-md"
+      style={{
+        paddingTop: 'max(env(safe-area-inset-top, 0px), 10px)',
+        paddingBottom: '10px',
+      }}
+    >
+      <div className="mx-auto flex max-w-2xl items-center gap-4">
+        {/* 로고 + 캐로셀 (바로 옆) */}
+        <button
+          type="button"
+          className="flex shrink-0 items-center gap-2 hover:opacity-80 transition-opacity"
           onClick={() => router.push('/')}
         >
-          유기동물 조회 서비스
-        </Button>
+          <span className="text-xl">🐾</span>
+          <span className="text-lg font-bold tracking-tight">유기동물 조회</span>
+        </button>
+
+        {/* 구분선 */}
+        <div className="h-5 w-px bg-primary-foreground/30" />
+
+        {/* 애니메이션 도시 캐로셀 */}
+        <AnimatedCityCarousel items={data ?? []} />
       </div>
-      <div className="flex-none">
-        <CountList items={data} />
-      </div>
-    </div>
+    </header>
   );
 };
 

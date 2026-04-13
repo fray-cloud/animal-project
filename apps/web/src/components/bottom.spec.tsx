@@ -17,23 +17,38 @@ describe('Bottom', () => {
     mockPathname = '/';
   });
 
-  it('renders three nav items with aria labels', () => {
+  it('renders three nav items', () => {
     render(<Bottom />);
     expect(screen.getByLabelText('홈')).toBeTruthy();
-    expect(screen.getByLabelText('조회하기')).toBeTruthy();
-    expect(screen.getByLabelText('좋아요')).toBeTruthy();
+    expect(screen.getByLabelText('조회')).toBeTruthy();
+    expect(screen.getByLabelText('북마크')).toBeTruthy();
   });
 
-  it('calls router.push with the item path on click', () => {
+  it('calls router.push with /search when 조회 is clicked', () => {
     render(<Bottom />);
-    fireEvent.click(screen.getByLabelText('조회하기'));
+    fireEvent.click(screen.getByLabelText('조회'));
     expect(mockPush).toHaveBeenCalledWith('/search');
   });
 
-  it('marks the matching pathname item as active', () => {
+  it('calls router.push with /like when 북마크 is clicked', () => {
+    render(<Bottom />);
+    fireEvent.click(screen.getByLabelText('북마크'));
+    expect(mockPush).toHaveBeenCalledWith('/like');
+  });
+
+  it('marks the active item with aria-current="page"', () => {
     mockPathname = '/like';
     render(<Bottom />);
-    expect(screen.getByLabelText('좋아요').className).toMatch(/text-primary/);
-    expect(screen.getByLabelText('홈').className).not.toMatch(/text-primary/);
+    expect(screen.getByLabelText('북마크').getAttribute('aria-current')).toBe('page');
+    expect(screen.getByLabelText('홈').getAttribute('aria-current')).toBeNull();
+  });
+
+  it('applies accent colour class to the active item label', () => {
+    mockPathname = '/search';
+    render(<Bottom />);
+    // The active span text has text-accent class
+    const activeBtn = screen.getByLabelText('조회');
+    const label = activeBtn.querySelector('span');
+    expect(label?.className).toMatch(/text-accent/);
   });
 });
