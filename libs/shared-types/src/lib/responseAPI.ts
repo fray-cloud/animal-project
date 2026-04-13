@@ -55,7 +55,14 @@ export interface APIResponse<T> {
     noticeNo: string; // 공고번호
     noticeSdt: string; // 공고시작일 (YYYYMMDD)
     noticeEdt: string; // 공고종료일 (YYYYMMDD)
-    popfile: string; // Image URL
+    popfile1: string; // Image URL (v2 API: up to 8 images popfile1..popfile8)
+    popfile2?: string;
+    popfile3?: string;
+    popfile4?: string;
+    popfile5?: string;
+    popfile6?: string;
+    popfile7?: string;
+    popfile8?: string;
     processState: string; // 상태 (예: 보호중)
     sexCd: string; // 성별 (M: 수컷, F: 암컷, Q: 미상)
     neuterYn: string; // 중성화 여부 (Y: 예, N: 아니오, U: 미상)

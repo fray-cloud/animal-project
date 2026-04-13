@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const UPSTREAM_BASE =
-  'http://apis.data.go.kr/1543061/abandonmentPublicSrvc';
+  'https://apis.data.go.kr/1543061/abandonmentPublicService_v2';
 
 export async function GET(
   request: NextRequest,
