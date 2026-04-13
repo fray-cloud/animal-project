@@ -2,7 +2,7 @@ import { useShelter, useSido } from 'front/hooks';
 import React from 'react';
 import { initShelter, initSido } from './initData';
 import { UseFormRegister, UseFormWatch } from 'react-hook-form';
-import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
+import { AnimalInfoRequestType } from '@animal-project/shared-types';
 import { Select, SelectProps, SelectWatchProps } from './Select';
 
 export const ShelterSelect = (props: SelectProps & SelectWatchProps) => {

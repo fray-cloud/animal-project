@@ -1,4 +1,4 @@
-import { AnimalInfo } from 'front/new-types/responseAPI';
+import { AnimalInfo } from '@animal-project/shared-types';
 import React, { useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { motion } from 'framer-motion';

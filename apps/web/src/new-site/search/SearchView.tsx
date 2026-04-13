@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
-import { AnimalInfoRequestType } from 'front/new-types/requestAPI';
+import { AnimalInfoRequestType } from '@animal-project/shared-types';
 import { useAnimalInfoInfinity } from 'front/hooks';
 import { AnimalCard } from './card';
 import InfiniteScroll from 'react-infinite-scroller';

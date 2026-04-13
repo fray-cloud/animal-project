@@ -1,7 +1,7 @@
 import { useInfiniteQuery, useQueries, useQuery } from "@tanstack/react-query";
 import { getAnimalInfo } from "front/new-api";
-import { AnimalInfoRequestType } from "front/new-types/requestAPI";
-import { Sido } from "front/new-types/responseAPI";
+import { AnimalInfoRequestType } from "@animal-project/shared-types";
+import { Sido } from "@animal-project/shared-types";
 
 export const useAnimalInfoSidoCount = (sidos : Sido[]) => {
     const query = useQueries({

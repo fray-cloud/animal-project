@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getShelter } from "front/new-api";
-import { ShelterRequestType } from "front/new-types/requestAPI";
-import { Shelter } from "front/new-types/responseAPI";
+import { ShelterRequestType } from "@animal-project/shared-types";
+import { Shelter } from "@animal-project/shared-types";
 
 type UseShelterProps = {
   init : Shelter

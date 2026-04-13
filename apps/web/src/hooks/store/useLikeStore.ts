@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { AnimalInfo } from 'front/new-types/responseAPI';
+import { AnimalInfo } from '@animal-project/shared-types';
 import { useEffect, useState } from 'react';
 
 type AnimalLikeType = AnimalInfo & {like: boolean};
